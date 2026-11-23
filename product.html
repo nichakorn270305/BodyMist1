@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สินค้าทั้งหมด — Body Scent</title>
+  <meta name="description" content="สินค้า Body Scent น้ำหอมฉีดตัวและโรลออน เลือกกรองตามมู้ด Fresh, Sweet, Confident, Romance">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- เส้นทองใต้หัวข้อ h1 ของหน้านี้ (style.css มีให้เฉพาะ h2) -->
+  <style>
+    .section-head h1::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: var(--space-3) auto 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">Body Scent</a>
+      <nav class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html" class="active">สินค้า</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Collection</span>
+          <h1>สินค้าทั้งหมด</h1>
+          <p>เลือกกลิ่นที่ใช่ ในมู้ดที่เป็นคุณ</p>
+        </div>
+
+        <!-- script.js เติมปุ่มกรอง mood ให้ -->
+        <div id="filter-bar" class="filters"></div>
+
+        <!-- script.js เติมการ์ดสินค้าให้ -->
+        <div id="product-list" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="logo">Body Scent</span>
+      <p>© 2026 Body Scent. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

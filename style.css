@@ -1,0 +1,462 @@
+/* =========================================================
+   Body Scent — Global Theme
+   Premium · Minimal · Warm neutrals with bronze-gold accent
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500&family=Noto+Serif+Thai:wght@400;500;600&display=swap');
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Neutrals */
+  --white: #FFFDF9;
+  --cream: #FAF7F2;
+  --ivory: #F3EEE6;
+  --sand: #E6DDD0;
+  --beige-deep: #B9A88F;
+
+  /* Ink */
+  --ink: #2B2622;
+  --ink-soft: #5E564E;
+  --ink-faint: #8C8379;
+
+  /* Accent (bronze / soft gold) */
+  --gold: #A98A5B;
+  --gold-light: #C9B38A;
+
+  /* Lines */
+  --line: #D9CFC0;
+  --line-dark: #3A332D;
+
+  /* Mood accents — used only as small touches */
+  --mood-fresh: #2F5D50;      /* เขียวเข้ม */
+  --mood-sweet: #8B6BA8;      /* ม่วงกลาง */
+  --mood-confident: #3B4A5E;  /* น้ำเงินเทาเข้ม */
+  --mood-romance: #C9706F;    /* แดงอ่อน */
+
+  /* Type */
+  --font-serif: 'Cormorant Garamond', 'Noto Serif Thai', Georgia, serif;
+  --font-sans: 'Noto Sans Thai', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  --container: 1120px;
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+h3 { font-size: 1.3rem; }
+p  { margin: 0 0 var(--space-2); color: var(--ink-soft); }
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section { padding: var(--space-6) 0; }
+.section--alt { background: var(--ivory); }
+.section--dark { background: var(--ink); color: var(--cream); }
+.section--dark p { color: var(--sand); }
+
+.section-head {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto var(--space-5);
+}
+
+/* thin gold divider under section titles */
+.section-head h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: var(--space-3) auto 0;
+}
+
+.text-center { text-align: center; }
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: var(--space-7) 0 var(--space-6);
+  text-align: center;
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 0 auto var(--space-4);
+  font-size: 1.05rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2.4rem;
+  background: transparent;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn--gold { border-color: var(--gold); color: var(--gold); }
+.btn--gold:hover { background: var(--gold); color: var(--white); }
+
+.btn--solid { background: var(--ink); color: var(--cream); }
+.btn--solid:hover { background: transparent; color: var(--ink); }
+
+.btn--block { display: block; width: 100%; text-align: center; }
+
+.btn:focus-visible,
+.filter-btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Filters ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.filter-btn {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 0.3rem 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.filter-btn:hover { color: var(--ink); }
+.filter-btn.active { color: var(--ink); border-color: var(--gold); }
+
+/* ---------- Mood system ----------
+   Set data-mood on any element; children can use var(--mood).
+   Color appears ONLY as small touches (dot, thin line). */
+[data-mood="fresh"]     { --mood: var(--mood-fresh); }
+[data-mood="sweet"]     { --mood: var(--mood-sweet); }
+[data-mood="confident"] { --mood: var(--mood-confident); }
+[data-mood="romance"]   { --mood: var(--mood-romance); }
+
+.mood-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.mood-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mood, var(--gold));
+}
+
+/* short colored line under a heading */
+.mood-line {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--mood, var(--gold));
+  margin: var(--space-2) 0;
+}
+
+/* ---------- Product grid & cards ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-4) var(--space-3);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.product-card:hover {
+  border-color: var(--gold-light);
+  transform: translateY(-3px);
+}
+
+.product-card__image {
+  aspect-ratio: 4 / 5;
+  background: var(--ivory);
+  overflow: hidden;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.product-card:hover .product-card__image img { transform: scale(1.03); }
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-3);
+}
+
+.product-card__name {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.product-card__desc {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  flex: 1;
+}
+
+.product-card__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  margin-top: var(--space-1);
+  border-top: 1px solid var(--line);
+}
+
+.product-card__size {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.price small {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  margin-left: 0.2rem;
+}
+
+.product-card .btn { margin-top: var(--space-2); }
+
+/* ---------- Forms (order form) ---------- */
+.form { max-width: 560px; margin: 0 auto; }
+
+.field { margin-bottom: var(--space-3); }
+
+.field label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.4rem;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.7rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  font-weight: 300;
+  transition: border-color 0.3s var(--ease);
+}
+
+.field textarea { min-height: 96px; resize: vertical; }
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.form-status {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* ---------- Feature / info blocks ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+.feature { text-align: center; }
+.feature h3 { font-size: 1.1rem; }
+.feature p  { font-size: 0.9rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: var(--space-5) 0 var(--space-4);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+}
+
+.site-footer .logo { display: block; margin-bottom: var(--space-2); color: var(--ink); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .section { padding: var(--space-5) 0; }
+  .hero { padding: var(--space-6) 0 var(--space-5); }
+  .nav { height: 64px; }
+  .nav-links { gap: var(--space-3); }
+  .section-head { margin-bottom: var(--space-4); }
+}
+
+@media (max-width: 520px) {
+  body { font-size: 0.95rem; }
+  .container { padding: 0 var(--space-2); }
+  .logo { font-size: 1.2rem; letter-spacing: 0.18em; }
+  .nav-links a { font-size: 0.78rem; letter-spacing: 0.08em; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3) var(--space-2); }
+  .product-card__body { padding: var(--space-2); }
+  .product-card__name { font-size: 1rem; }
+  .product-card__desc { display: none; }
+  .btn { padding: 0.8rem 1.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
